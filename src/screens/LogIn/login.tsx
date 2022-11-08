@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import { Button } from "../../components/Button/button";
 import { CustomTextInput } from "../../components/TextInput/textInput";
 import { styles } from "./styles";
 
-export const LogIn = () => {
+export const LogIn = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const onLoggingIn = () => {
     console.log("login");
+    navigation.navigate("Chat");
+  };
+
+  const onSigningUp = () => {
+    console.log("sign up");
   };
 
   return (
@@ -39,7 +44,7 @@ export const LogIn = () => {
       />
       <Button
         text="Sign Up"
-        onButtonPress={onLoggingIn}
+        onButtonPress={onSigningUp}
         color={"darkSpringGreen"}
         strong={false}
       />
